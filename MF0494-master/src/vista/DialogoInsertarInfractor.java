@@ -19,6 +19,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.border.EmptyBorder;
 
 import controlador.Controlador;
+import modelo.Infractor;
 import modelo.Sancion;
 import net.miginfocom.swing.MigLayout;
 import java.awt.Dimension;
@@ -147,7 +148,7 @@ public class DialogoInsertarInfractor extends JDialog {
 	}
 
 	protected void recogerDatos() {
-		// Inserta aquí el código de como recoger los datos de la interfaz de usaurio y 
+		// Inserta aquï¿½ el cï¿½digo de como recoger los datos de la interfaz de usaurio y 
 		// llama al controlador para insertar el infractor.
 		
 	}
@@ -157,10 +158,10 @@ public class DialogoInsertarInfractor extends JDialog {
 		
 	}
 
-	public void setListaSanciones(ArrayList<Sancion> listaSanciones) {
-		for (Sancion sancion : listaSanciones) {
-			comboSancion.addItem(sancion);
-		}
+	public void setListaInfratores(ArrayList<Infractor> listaInfractores) {
+		// TODO Esbozo de mÃ©todo generado automÃ¡ticamente
+		
 	}
+
 
 }

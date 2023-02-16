@@ -8,7 +8,11 @@ package uf2181;
  *
  */
 public class FuncionesDGT {
-
+	/**
+	 * Funcion que devuelve la media de un array de numeros dado
+	 * @param puntos array de numeros
+	 * @return devuelve la media en double de los numeros del array
+	 */
 	public double mediaPuntos(int puntos[]) {
 		double suma = 0;
 		
@@ -18,7 +22,12 @@ public class FuncionesDGT {
 		if (puntos.length==0) throw new ArrayIndexOutOfBoundsException();
 		return suma/puntos.length;
 	}
-	
+	/**
+	 * funcion para determinar el limite de aire aspirado y limite en sangre de los condictores en funcion de si son generales o noveles y de si tienen aire o no
+	 * @param tipoConductor tipo de conductor comprobado
+	 * @param aire sitiene aire o no
+	 * @return devuelve el limite de aire en sangre determinado 
+	 */
 	public double maximaTasaPermitida(String tipoConductor, boolean aire) {
 		double tasa=0.25;
 		if (tipoConductor.equalsIgnoreCase("General")) {

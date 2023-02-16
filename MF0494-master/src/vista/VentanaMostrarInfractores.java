@@ -6,8 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import controlador.Controlador;
+import modelo.Infractor;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -26,6 +28,7 @@ import javax.swing.JTable;
 import java.awt.FlowLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class VentanaMostrarInfractores extends JFrame {
@@ -67,6 +70,33 @@ public class VentanaMostrarInfractores extends JFrame {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		table.setModel(new DefaultTableModel(
+				new Object[][] {
+				},
+				new String[] {
+					"Dni", "Nombre","Apellidos", "Antiguedad","Sancion","Puntos"
+				}
+			) {
+			Class[] columnTypes = new Class[] {
+					String.class, String.class, String.class, Integer.class, Double.class, Integer.class
+				};
+				public Class getColumnClass(int columnIndex) {
+					return columnTypes[columnIndex];
+				}
+			});
+		table.getColumnModel().getColumn(0).setPreferredWidth(100);
+		table.getColumnModel().getColumn(1).setPreferredWidth(100);
+		table.getColumnModel().getColumn(2).setPreferredWidth(100);
+		table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		table.getColumnModel().getColumn(4).setPreferredWidth(100);
+		table.getColumnModel().getColumn(5).setPreferredWidth(100);
+		table.getColumnModel().getColumn(6).setPreferredWidth(100);
+		scrollPane.setViewportView(table);
+		
+		
+		
+		
+		
 		
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1, "cell 0 2,grow");
@@ -83,7 +113,22 @@ public class VentanaMostrarInfractores extends JFrame {
 	}
 
 
-	
+	public void setListaInfratores(ArrayList<Infractor> listaInfractores) {
+		// TODO Esbozo de método generado automáticamente
+		DefaultTableModel modelo = (DefaultTableModel) table.getModel();
+		modelo.setRowCount(0);
+		for ( Infractor infrator : listaInfractores) {
+			Object fila [] = {
+					infrator.getDni(),
+					infrator.getNombre(),
+					infrator.getApellidos(),
+					infrator.getAntiguedad(),
+					infrator.getSancion(),
+					infrator.getPuntos()
+			};
+			modelo.addRow(fila);
+		}
+	}
 	
 
 }
